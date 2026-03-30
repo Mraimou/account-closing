@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="res.groups.privilege" id="privilege_revaluation">
+        <field name="name">Multicurrency Revaluation</field>
+    </record>
+    <record model="res.groups" id="group_revaluation_additional">
+        <field name="name">Additional provisioning entries posting</field>
+        <field name="privilege_id" ref="privilege_revaluation" />
+    </record>
+</odoo>
