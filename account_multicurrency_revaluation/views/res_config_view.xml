@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_account_config_settings" model="ir.ui.view">
+        <field name="name">account settings currency revaluation</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='invoicing_settings']" position="after">
+                <block title="Multicurrency revaluation" id="multicurrency_revaluation_settings">
+                    <setting string="Auto Post Created Entries" company_dependent="1">
+                        <field name="auto_post_entries" />
+                        <div class="text-muted">
+                            If marked, the entries created in the process will be posted automatically.
+                        </div>
+                    </setting>
+                    <setting string="Default revaluation journal" company_dependent="1">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label
+                                    for="default_currency_reval_journal_id"
+                                    class="col-md-3 o_light_label"
+                                />
+                                <field
+                                    name="default_currency_reval_journal_id"
+                                    options="{'no_create_edit': True, 'no_open': True}"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting string="Revaluation accounts" company_dependent="1">
+                        <div class="content-group">
+                            <table>
+                                <tr class="row">
+                                    <th class="col-md-3" />
+                                    <th class="col-md-3">
+                                        <b>Loss</b>
+                                    </th>
+                                    <th class="col-md-3">
+                                        <b>Gain</b>
+                                    </th>
+                                    <th class="col-md-3">
+                                        <b>Analytic account</b>
+                                    </th>
+                                </tr>
+                                <tr class="row">
+                                    <th class="col-md-3">
+                                        <b>Revaluation accounts</b>
+                                    </th>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="revaluation_loss_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="revaluation_gain_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="revaluation_analytic_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <th class="col-md-3">
+                                        <b>Provision B.S accounts</b>
+                                    </th>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="provision_bs_loss_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="provision_bs_gain_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                    <td class="col-md-3" />
+                                </tr>
+                                <tr class="row">
+                                    <th class="col-md-3">
+                                        <b>Provision P&amp;L accounts</b>
+                                    </th>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="provision_pl_loss_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="provision_pl_gain_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                    <td class="col-md-3">
+                                        <field
+                                            name="provision_pl_analytic_account_id"
+                                            nolabel="1"
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
